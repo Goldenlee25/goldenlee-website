@@ -1,89 +1,67 @@
-/* --------------------
-   Body and Fonts
--------------------- */
+/* Global */
 body {
-    font-family: 'Poppins', Arial, sans-serif; /* modern, clean font */
-    background-color: #1a1a1a; /* dark background */
-   color: #00FF00; /* Green for Goldenlee */
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-/* --------------------
-   Header
--------------------- */
-header {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0d0d0d;
+    color: #e6ffe6;
     text-align: center;
-    padding: 60px 20px;
-    border-bottom: 3px solid #ffd700;
-    background: linear-gradient(90deg, #000000, #111111);
 }
 
-header h1 {
-    font-size: 3em;
-    margin: 20px 0 10px 0;
+/* Hero Section */
+.hero {
+    padding: 80px 20px;
 }
 
-header p {
-    font-size: 1.2em;
+.logo-text {
+    font-size: 3rem;
+    color: #00ff88;
+    text-shadow: 0 0 15px #00ff88;
+    margin: 0;
 }
 
-/* Logo */
-header img {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 150px; /* adjust as needed */
-    border: 2px solid #ffd700;
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+/* Cards */
+.card {
+    background: #141414;
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
     border-radius: 15px;
-    box-shadow: 0 0 10px #ffd700; /* subtle glow */
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --------------------
-   Sections
--------------------- */
-section {
-    padding: 50px 20px;
-    text-align: center;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
 }
 
-section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px #000000;
+.card h2 {
+    color: #00ff88;
 }
 
-/* About Section Character */
-#about img {
-    display: block;
-    margin: 20px auto 20px auto;
-    width: 200px; /* adjust as needed */
-    border-radius: 20px;
-    border: 2px solid #ffd700;
-    box-shadow: 0 0 15px #ffd700; /* glow effect */
-}
-
-/* Features List */
-#features ul {
-    list-style-type: none; /* removes default bullets */
+ul {
+    list-style: none;
     padding: 0;
 }
 
-#features li {
-    margin: 15px 0;
-    font-size: 1.2em;
-    padding: 10px 0;
-    border-bottom: 1px solid #ffd700;
+ul li {
+    margin: 10px 0;
 }
 
-/* --------------------
-   Footer
--------------------- */
+/* Footer */
 footer {
-    text-align: center;
+    margin-top: 60px;
     padding: 20px;
-    border-top: 3px solid #ffd700;
-    font-size: 0.9em;
-    background-color: #111111;
+    background: #111;
+    font-size: 0.9rem;
+    opacity: 0.6;
 }
+
 
