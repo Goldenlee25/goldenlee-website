@@ -1,13 +1,29 @@
-<section class="hero">
-    <div class="nebula-layer"></div>
-    <div class="hero-content">
-        <h1 class="logo-text">Goldenlee</h1>
-        <p class="tagline">Gaming is the beginning. Expansion is inevitable.</p>
-        <button class="enter-btn">Enter the System</button>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goldenlee</title>
+    <style>
+        /* ALL YOUR CSS HERE */
+    </style>
+</head>
+<body>
 
-    <div class="character-container">
-        <div class="character-glow"></div>
-        <img src="your-character.png" alt="Goldenlee Character" class="character-img">
-    </div>
-</section>
+    <!-- ALL YOUR HTML SECTIONS HERE -->
+
+
+    <!-- SCRIPT GOES RIGHT HERE -->
+    <script>
+        const character = document.querySelector('.character-container');
+
+        document.addEventListener('mousemove', (e) => {
+            if (!character) return;
+
+            const x = (window.innerWidth / 2 - e.clientX) / 40;
+            const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+            character.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+
+</body>
+</html>
