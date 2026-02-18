@@ -1,80 +1,84 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #cccccc;
-    line-height: 1.6;
-}
-
-/* Hero Section */
+/* HERO LAYOUT */
 .hero {
+    position: relative;
     height: 100vh;
-    background: url("goldenlee-banner.png") center center / cover no-repeat;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-
-    color: #00ff88;
+    background: radial-gradient(circle at center, #0a0f2c 0%, #050816 100%);
 }
 
-/* Logo Text */
+/* Nebula atmosphere */
+.nebula-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 60% 40%, rgba(157,0,255,0.15), transparent 60%);
+    filter: blur(120px);
+    z-index: 1;
+}
+
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
 .logo-text {
     font-size: 4rem;
-    letter-spacing: 4px;
-    text-shadow: 0 0 20px #00ff88;
+    background: linear-gradient(90deg, #00f2ff, #9d00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Tagline */
 .tagline {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #8a2be2;
+    margin-top: 1rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
 }
 
-/* Main Content */
-main {
-    padding: 60px 20px;
+.enter-btn {
+    margin-top: 2rem;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* Cards */
-.card {
-    background: #111111;
-    padding: 30px;
-    margin: 30px auto;
-    max-width: 800px;
-    border: 1px solid #00ff88;
-    border-radius: 8px;
+.enter-btn:hover {
+    box-shadow: 0 0 20px rgba(0,242,255,0.4);
+    transform: translateY(-3px);
 }
 
-/* Card Headings */
-.card h2 {
-    color: #00ff88;
-    margin-bottom: 15px;
+/* Character */
+.character-container {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+    z-index: 2;
+    transition: transform 0.2s ease-out;
 }
 
-/* List */
-.card ul {
-    list-style: none;
+.character-img {
+    width: 420px;
+    filter: drop-shadow(0 0 30px rgba(0,242,255,0.2));
 }
 
-.card li {
-    margin: 10px 0;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #000000;
-    border-top: 1px solid #00ff88;
-    font-size: 0.9rem;
+/* Glow Behind Character */
+.character-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,242,255,0.25), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    z-index: -1;
 }
