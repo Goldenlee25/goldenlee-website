@@ -8,49 +8,63 @@
 </head>
 <body>
 
-<div class="grain"></div>
-
-<header class="nav">
-    <div class="nav-inner">
-        <div class="logo glitch-hover">Goldenlee</div>
-        <nav>
-            <a href="#foundation">Foundation</a>
-            <a href="#focus">Focus</a>
-            <a href="#future">Next Phase</a>
-        </nav>
-    </div>
+<header class="hero">
+    <h1>Goldenlee</h1>
+    <p class="subtitle">From gaming to brand architecture.</p>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="glitch-hover">Goldenlee</h1>
-        <p class="tagline">Creative is the future.</p>
-
-        <div class="hero-text">
+<section class="pillars">
+    <div class="card" onclick="toggleCard(this)">
+        <h2>Gaming</h2>
+        <div class="card-content">
             <p>
-                Goldenlee started as gaming.
-                It didn’t stay there.
-            </p>
-            <p>
-                It became a place to build systems.
-                To experiment quietly.
-                To create instead of consume.
+                Where it started. Competitive focus, discipline,
+                performance mindset, and long-term improvement.
             </p>
         </div>
+    </div>
 
-        <a href="#foundation" class="btn">Enter</a>
+    <div class="card" onclick="toggleCard(this)">
+        <h2>Branding</h2>
+        <div class="card-content">
+            <p>
+                Building identity with structure. Visual systems,
+                tone clarity, positioning, and digital presence
+                designed with intent.
+            </p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <h2>Systems</h2>
+        <div class="card-content">
+            <p>
+                Beyond content. Creating frameworks, platforms,
+                and long-term digital infrastructure that grows
+                over time.
+            </p>
+        </div>
     </div>
 </section>
 
-<section id="foundation" class="section">
-    <h2>Built with Intention</h2>
+<section class="future">
+    <h2>Future</h2>
     <p>
-        Nothing here is accidental.
-        Every detail is deliberate.
-        Every direction is long-term.
-    </p>
-    <p>
-        This isn’t content.
-        It’s construction.
+        Goldenlee expands beyond gaming.
+        One direction is Driftwave — a music-focused platform
+        designed around connection instead of competition.
     </p>
 </section>
+
+<footer>
+    <p>© 2026 Goldenlee</p>
+</footer>
+
+<script>
+function toggleCard(card) {
+    card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
