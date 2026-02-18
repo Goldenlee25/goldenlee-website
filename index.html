@@ -7,7 +7,7 @@
 
 <style>
 
-/* RESET */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -15,111 +15,143 @@
 }
 
 body {
-    background: #050816;
+    background: radial-gradient(circle at center, #0a0f2c 0%, #050816 100%);
     font-family: Arial, sans-serif;
     color: white;
     overflow-x: hidden;
 }
 
-/* HERO SECTION */
+/* ===== STARFIELD BACKGROUND ===== */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* ===== HERO ===== */
 .hero {
     position: relative;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    overflow: hidden;
+    padding: 0 8%;
+    z-index: 2;
 }
 
-/* Cosmic Background */
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle at 60% 40%, rgba(157,0,255,0.15), transparent 60%);
-    filter: blur(120px);
-    z-index: 1;
+.hero-left {
+    max-width: 500px;
 }
 
-/* Content */
-.hero-content {
-    position: relative;
-    z-index: 3;
-}
-
-.logo-text {
+.logo {
     font-size: 4rem;
     background: linear-gradient(90deg, #00f2ff, #9d00ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.tagline {
-    margin-top: 1rem;
+.subtitle {
+    margin-top: 20px;
+    font-size: 1.1rem;
     color: rgba(255,255,255,0.7);
-    letter-spacing: 1px;
 }
 
-.enter-btn {
-    margin-top: 2rem;
-    padding: 12px 30px;
+.cta-btn {
+    margin-top: 30px;
+    padding: 14px 32px;
     border-radius: 30px;
     border: 1px solid rgba(255,255,255,0.2);
     background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
     color: white;
-    backdrop-filter: blur(10px);
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-.enter-btn:hover {
-    box-shadow: 0 0 20px rgba(0,242,255,0.4);
-    transform: translateY(-3px);
+.cta-btn:hover {
+    box-shadow: 0 0 25px rgba(0,242,255,0.5);
+    transform: translateY(-4px);
 }
 
-/* Character Container */
-.character-container {
-    position: absolute;
-    right: 8%;
-    bottom: 5%;
-    z-index: 2;
-    transition: transform 0.2s ease-out;
+/* ===== CHARACTER AREA ===== */
+.hero-right {
+    position: relative;
 }
 
-/* Character Image */
-.character-img {
-    width: 380px;
-    max-width: 90vw;
-    filter: drop-shadow(0 0 30px rgba(0,242,255,0.2));
+.character {
+    width: 420px;
+    filter: drop-shadow(0 0 40px rgba(0,242,255,0.3));
+    animation: float 6s ease-in-out infinite;
 }
 
-/* Glow Behind Character */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Glow behind character */
 .character-glow {
     position: absolute;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(0,242,255,0.25), transparent 70%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,242,255,0.2), transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(80px);
+    filter: blur(100px);
     z-index: -1;
 }
 
-/* RESPONSIVE */
-@media(max-width: 900px){
-    .character-container {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin-top: 40px;
-    }
+/* ===== INFO SECTION ===== */
+.section {
+    padding: 120px 10%;
+    position: relative;
+    z-index: 2;
+}
 
+.cards {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 260px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(157,0,255,0.3);
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    color: #00f2ff;
+}
+
+.card p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 900px) {
     .hero {
         flex-direction: column;
-        padding: 40px 20px;
+        text-align: center;
+    }
+    .hero-right {
+        margin-top: 50px;
     }
 }
 
@@ -128,33 +160,85 @@ body {
 
 <body>
 
+<canvas id="stars"></canvas>
+
 <section class="hero">
 
-    <div class="hero-content">
-        <h1 class="logo-text">Goldenlee</h1>
-        <p class="tagline">Gaming is the beginning. Expansion is inevitable.</p>
-        <button class="enter-btn">Enter the System</button>
+    <div class="hero-left">
+        <h1 class="logo">Goldenlee</h1>
+        <p class="subtitle">Gaming is the foundation. Expansion is the direction.</p>
+        <button class="cta-btn">Enter System</button>
     </div>
 
-    <div class="character-container">
+    <div class="hero-right">
         <div class="character-glow"></div>
-        <!-- IMPORTANT: Replace with your actual image file name -->
-        <img src="character.png" class="character-img" alt="Goldenlee Character">
+        <img src="your-character.png" class="character" alt="Goldenlee Character">
     </div>
 
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const character = document.querySelector('.character-container');
-    if (!character) return;
+<section class="section">
+    <h2>Current Focus</h2>
 
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.clientX) / 40;
-        const y = (window.innerHeight / 2 - e.clientY) / 40;
-        character.style.transform = `translate(${x}px, ${y}px)`;
+    <div class="cards">
+        <div class="card">
+            <h3>Precision</h3>
+            <p>Competitive presence built with discipline and long-term mastery.</p>
+        </div>
+        <div class="card">
+            <h3>Alignment</h3>
+            <p>A growing network shaped around vision, not noise.</p>
+        </div>
+        <div class="card">
+            <h3>Expansion</h3>
+            <p>Gaming as the first layer of a larger digital ecosystem.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+
+/* ===== STARFIELD ===== */
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+for (let i = 0; i < 200; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2,
+        speed: Math.random() * 0.5
     });
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+        star.y += star.speed;
+        if (star.y > canvas.height) star.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
+
 </script>
 
 </body>
