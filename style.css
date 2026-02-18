@@ -1,1 +1,43 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #050816; color: #00ff00; scroll-behavior: smooth; }
+
+/* HERO */
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero .subtitle { margin-top: 15px; color: rgba(0,255,0,0.7); font-size: 1.2rem; }
+
+/* FOCUS CARDS */
+.focus { display: flex; justify-content: center; gap: 20px; padding: 80px 10%; flex-wrap: wrap; }
+.card { flex: 1 1 250px; padding: 30px; background: rgba(0,255,0,0.05); border: 1px solid rgba(0,255,0,0.3); backdrop-filter: blur(10px); text-align: center; font-weight: bold; cursor: default; transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0,255,0,0.5); }
+
+/* VISION SECTION */
+.vision { padding: 80px 15%; text-align: center; font-size: 1.1rem; color: rgba(0,255,0,0.8); line-height: 1.6; }
+
+/* FOOTER */
+footer { text-align: center; padding: 30px; color: rgba(0,255,0,0.5); font-size: 0.9rem; }
+
+/* GLITCH EFFECT FOR LOGO PLACEHOLDER */
+.logo { font-size: 4rem; font-weight: bold; background: linear-gradient(90deg, #00ff00, #00aa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; animation: glitch 2s infinite; }
+
+@keyframes glitch {
+    0% { clip: rect(0,9999px,0,0);}
+    10% { clip: rect(10px,9999px,80px,0);}
+    20% { clip: rect(30px,9999px,60px,0);}
+    30% { clip: rect(20px,9999px,100px,0);}
+    40% { clip: rect(50px,9999px,120px,0);}
+    50% { clip: rect(10px,9999px,90px,0);}
+    60% { clip: rect(20px,9999px,60px,0);}
+    70% { clip: rect(30px,9999px,80px,0);}
+    80% { clip: rect(50px,9999px,100px,0);}
+    90% { clip: rect(10px,9999px,120px,0);}
+    100% { clip: rect(0,9999px,0,0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+    .hero .subtitle { font-size: 1rem; }
+    .card { flex: 1 1 100%; }
+    .vision { padding: 50px 10%; }
+}
 
