@@ -6,123 +6,153 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #0f1115;
-  color: #e6e6e6;
+  background: #0e1116;
+  color: #eaeaea;
   overflow-x: hidden;
 }
 
-/* subtle texture */
-.noise {
+/* Subtle tech grid */
+.grid-overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  opacity: 0.04;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
   pointer-events: none;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
   z-index: 1;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-}
-
-h1 {
-  font-size: 5rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  position: relative;
-}
-
-/* subtle glitch */
-.glitch {
-  position: relative;
-  color: #ffffff;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.glitch::before {
-  color: #00c26e;
-  z-index: -1;
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  color: #00c26e;
-  z-index: -2;
-  animation: glitchBottom 2s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-  0% { transform: translate(2px, -2px); }
-  50% { transform: translate(-2px, 2px); }
-  100% { transform: translate(1px, -1px); }
-}
-
-@keyframes glitchBottom {
-  0% { transform: translate(-2px, 2px); }
-  50% { transform: translate(2px, -2px); }
-  100% { transform: translate(-1px, 1px); }
-}
-
-.tagline {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: #bbbbbb;
-}
-
-.tagline span {
-  color: #00c26e;
-}
-
-section {
-  padding: 120px 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.container {
+.hero-inner {
   max-width: 900px;
-  margin: auto;
-  text-align: center;
 }
 
-h2 {
-  font-size: 2.2rem;
+.main-title {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+}
+
+.hero-sub {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #bfbfbf;
+}
+
+.hero-sub span {
+  color: #00c26e;
+  font-weight: 500;
+}
+
+/* STATEMENT */
+
+.statement {
+  padding: 180px 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: center;
+}
+
+.left h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.right p {
+  font-size: 1.1rem;
+  line-height: 1.9;
   margin-bottom: 30px;
-  font-weight: 600;
+  color: #cfcfcf;
 }
 
-p {
+/* VISION */
+
+.vision {
+  padding: 200px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.vision-inner {
+  max-width: 800px;
+  margin: auto;
+}
+
+.vision h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
+.vision p {
+  font-size: 1.2rem;
   line-height: 1.8;
+  color: #cfcfcf;
+}
+
+/* DRIFTWAVE */
+
+.driftwave {
+  padding: 160px 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.drift-box {
+  border: 1px solid rgba(0,194,110,0.3);
+  padding: 60px 80px;
+  text-align: center;
+  max-width: 600px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.drift-box h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.drift-box p {
   margin-bottom: 25px;
   color: #cfcfcf;
 }
 
-.future .coming {
+.drift-box span {
   color: #00c26e;
-  font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
 }
+
+/* FOOTER */
 
 footer {
   text-align: center;
-  padding: 40px 0;
+  padding: 60px 0;
   font-size: 0.8rem;
-  color: #666;
+  color: #555;
 }
