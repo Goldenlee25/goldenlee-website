@@ -16,11 +16,10 @@ body {
     font-family: Arial, sans-serif;
     background: #050816;
     color: white;
-    overflow: hidden;
-    cursor: default;
+    overflow-x: hidden;
 }
 
-/* ===== GLITCHY BACKGROUND ===== */
+/* ===== BACKGROUND GRID + PARTICLES ===== */
 body::before {
     content:"";
     position: fixed;
@@ -30,16 +29,16 @@ body::before {
     left: -50%;
     background: repeating-linear-gradient(
         0deg,
-        rgba(0,0,0,0.02) 0px,
-        rgba(0,0,0,0.02) 2px,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 2px,
         transparent 2px,
         transparent 4px
     );
-    animation: glitchMove 20s linear infinite;
+    animation: gridMove 20s linear infinite;
     z-index: 0;
 }
 
-@keyframes glitchMove {
+@keyframes gridMove {
     0% { transform: translate(0,0);}
     50% { transform: translate(50px, -30px);}
     100% { transform: translate(0,0);}
@@ -51,20 +50,21 @@ body::before {
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 8%;
-    z-index: 2;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1;
 }
 
 /* ===== GLITCHY LOGO ===== */
 .logo {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: bold;
-    position: relative;
     background: linear-gradient(90deg, #00f2ff, #9d00ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
     animation: glitch 2s infinite;
 }
 
@@ -82,36 +82,34 @@ body::before {
     100% { clip: rect(0,9999px,0,0);}
 }
 
-/* ===== HERO CONTENT ===== */
-.hero-left {
-    max-width: 500px;
-    z-index: 2;
-}
-
+/* ===== SUBTITLE ===== */
 .subtitle {
-    margin-top: 20px;
-    font-size: 1.1rem;
+    margin-top: 15px;
+    font-size: 1.2rem;
     color: rgba(255,255,255,0.7);
 }
 
+/* ===== BUTTONS ===== */
 .nav-buttons {
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-buttons button {
-    padding: 14px 28px;
+    padding: 14px 32px;
     border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.2);
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     color: white;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s ease;
     position: relative;
     overflow: hidden;
+    transition: 0.3s ease;
 }
 
 .nav-buttons button::after {
@@ -135,91 +133,89 @@ body::before {
     box-shadow: 0 0 20px rgba(0,242,255,0.4);
 }
 
-/* ===== CHARACTER ===== */
-.hero-right {
-    position: relative;
-    z-index: 2;
-}
-
-.character-container {
-    position: relative;
-}
-
-.character-glow {
+/* ===== FLOATING DIGITAL ELEMENTS ===== */
+.digital-bar {
     position: absolute;
-    width: 500px;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(0,242,255,0.25), transparent 70%);
-    filter: blur(100px);
-    z-index: -1;
+    width: 200px;
+    height: 2px;
+    background: #00f2ff;
+    opacity: 0.3;
+    top: 10%;
+    animation: barMove 4s linear infinite;
 }
 
-.character-img {
-    width: 380px;
-    max-width: 90vw;
-    filter: drop-shadow(0 0 40px rgba(0,242,255,0.3));
-    animation: float 6s ease-in-out infinite;
+.digital-bar:nth-child(2) {
+    top: 30%;
+    width: 300px;
+    animation-duration: 6s;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px);}
-    50% { transform: translateY(-15px);}
-    100% { transform: translateY(0px);}
+.digital-bar:nth-child(3) {
+    top: 60%;
+    width: 150px;
+    animation-duration: 5s;
+}
+
+@keyframes barMove {
+    0% { transform: translateX(-100%);}
+    100% { transform: translateX(100%);}
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width: 900px){
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 50px 5%;
-    }
-
-    .hero-right {
-        margin-top: 50px;
-    }
+    .logo { font-size: 3rem; }
+    .subtitle { font-size: 1rem; }
+    .nav-buttons button { padding: 12px 24px; }
 }
-
 </style>
 </head>
-
 <body>
 
 <section class="hero">
+    <div class="digital-bar"></div>
+    <div class="digital-bar"></div>
+    <div class="digital-bar"></div>
 
-    <div class="hero-left">
-        <h1 class="logo">Goldenlee</h1>
-        <p class="subtitle">Gaming is the foundation. Expansion is inevitable.</p>
+    <h1 class="logo">Goldenlee</h1>
+    <p class="subtitle">Gaming is the foundation. Expansion is inevitable.</p>
 
-        <div class="nav-buttons">
-            <button onclick="alert('Go to Competitive Page')">Competitive</button>
-            <button onclick="alert('Go to Community Page')">Community</button>
-            <button onclick="alert('Go to Creative Growth Page')">Creative Growth</button>
-        </div>
+    <div class="nav-buttons">
+        <button onclick="alert('Go to Competitive')">Competitive</button>
+        <button onclick="alert('Go to Community')">Community</button>
+        <button onclick="alert('Go to Creative Growth')">Creative Growth</button>
     </div>
-
-    <div class="hero-right">
-        <div class="character-container">
-            <div class="character-glow"></div>
-            <img src="character.png" alt="Goldenlee Character" class="character-img">
-        </div>
-    </div>
-
 </section>
 
 <script>
-/* ===== MOUSE PARALLAX ===== */
-const character = document.querySelector('.character-container');
-document.addEventListener('mousemove', e => {
-    const x = (window.innerWidth/2 - e.clientX)/40;
-    const y = (window.innerHeight/2 - e.clientY)/40;
-    character.style.transform = `translate(${x}px, ${y}px)`;
-});
+/* Optional: subtle background particles */
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+canvas.style.position = 'fixed';
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.zIndex = '0';
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
+let particles = [];
+for(let i=0;i<100;i++){
+    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, speed:Math.random()*0.5});
+}
+function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,242,255,0.2)';
+        ctx.fill();
+        p.y -= p.speed;
+        if(p.y<0)p.y=canvas.height;
+    });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
 </script>
 
 </body>
 </html>
-
