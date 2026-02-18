@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Goldenlee</title>
-    <style>
-        /* ALL YOUR CSS HERE */
-    </style>
-</head>
-<body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const character = document.querySelector('.character-container');
+    if (!character) return;
 
-    <!-- ALL YOUR HTML SECTIONS HERE -->
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 40;
+        const y = (window.innerHeight / 2 - e.clientY) / 40;
 
+        character.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+</script>
 
-    <!-- SCRIPT GOES RIGHT HERE -->
-    <script>
-        const character = document.querySelector('.character-container');
-
-        document.addEventListener('mousemove', (e) => {
-            if (!character) return;
-
-            const x = (window.innerWidth / 2 - e.clientX) / 40;
-            const y = (window.innerHeight / 2 - e.clientY) / 40;
-
-            character.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    </script>
-
-</body>
-</html>
