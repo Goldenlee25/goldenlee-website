@@ -4,217 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Goldenlee</title>
-<style>
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #050816;
-    color: #00ff00;
-    overflow-x: hidden;
-}
-
-/* ===== BACKGROUND GRID + PARTICLES ===== */
-body::before {
-    content:"";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,255,0,0.02) 0px,
-        rgba(0,255,0,0.02) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    animation: gridMove 20s linear infinite;
-    z-index: 0;
-}
-
-@keyframes gridMove {
-    0% { transform: translate(0,0);}
-    50% { transform: translate(50px, -30px);}
-    100% { transform: translate(0,0);}
-}
-
-/* ===== HERO CONTAINER ===== */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    z-index: 1;
-}
-
-/* ===== GLITCHY LOGO ===== */
-.logo {
-    font-size: 5rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #00ff00, #00aa00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-    animation: glitch 2s infinite;
-}
-
-@keyframes glitch {
-    0% { clip: rect(0,9999px,0,0);}
-    10% { clip: rect(10px,9999px,80px,0);}
-    20% { clip: rect(30px,9999px,60px,0);}
-    30% { clip: rect(20px,9999px,100px,0);}
-    40% { clip: rect(50px,9999px,120px,0);}
-    50% { clip: rect(10px,9999px,90px,0);}
-    60% { clip: rect(20px,9999px,60px,0);}
-    70% { clip: rect(30px,9999px,80px,0);}
-    80% { clip: rect(50px,9999px,100px,0);}
-    90% { clip: rect(10px,9999px,120px,0);}
-    100% { clip: rect(0,9999px,0,0);}
-}
-
-/* ===== SUBTITLE ===== */
-.subtitle {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    color: rgba(0,255,0,0.7);
-}
-
-/* ===== BUTTONS ===== */
-.nav-buttons {
-    margin-top: 50px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.nav-buttons button {
-    padding: 14px 32px;
-    border-radius: 25px;
-    border: 1px solid rgba(0,255,0,0.3);
-    background: rgba(0,255,0,0.05);
-    backdrop-filter: blur(10px);
-    color: #00ff00;
-    cursor: pointer;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s ease;
-}
-
-.nav-buttons button::after {
-    content:"";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:-100%;
-    background: rgba(0,255,0,0.2);
-    transform: skewX(-20deg);
-    transition: 0.5s;
-}
-
-.nav-buttons button:hover::after {
-    left:100%;
-}
-
-.nav-buttons button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(0,255,0,0.5);
-}
-
-/* ===== FLOATING DIGITAL BARS ===== */
-.digital-bar {
-    position: absolute;
-    width: 200px;
-    height: 2px;
-    background: #00ff00;
-    opacity: 0.3;
-    top: 10%;
-    animation: barMove 4s linear infinite;
-}
-
-.digital-bar:nth-child(2) { top: 30%; width: 300px; animation-duration: 6s; }
-.digital-bar:nth-child(3) { top: 60%; width: 150px; animation-duration: 5s; }
-
-@keyframes barMove {
-    0% { transform: translateX(-100%);}
-    100% { transform: translateX(100%);}
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width: 900px){
-    .logo { font-size: 3rem; }
-    .subtitle { font-size: 1rem; }
-    .nav-buttons button { padding: 12px 24px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- HERO SECTION -->
 <section class="hero">
-    <div class="digital-bar"></div>
-    <div class="digital-bar"></div>
-    <div class="digital-bar"></div>
-
-    <h1 class="logo">Goldenlee</h1>
+    <h1 class="logo">[Goldenlee Logo Here]</h1>
     <p class="subtitle">Gaming is the foundation. Expansion is inevitable.</p>
-
-    <div class="nav-buttons">
-        <button onclick="alert('Go to Competitive')">Competitive</button>
-        <button onclick="alert('Go to Community')">Community</button>
-        <button onclick="alert('Go to Creative Growth')">Creative Growth</button>
-    </div>
 </section>
 
-<script>
-/* ===== BACKGROUND PARTICLES ===== */
-const canvas = document.createElement('canvas');
-document.body.appendChild(canvas);
-canvas.style.position = 'fixed';
-canvas.style.top = 0;
-canvas.style.left = 0;
-canvas.style.zIndex = '0';
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const ctx = canvas.getContext('2d');
+<!-- CURRENT FOCUS SECTION -->
+<section class="focus">
+    <div class="card">Competitive</div>
+    <div class="card">Community</div>
+    <div class="card">Creative Growth</div>
+</section>
 
-let particles = [];
-for(let i=0;i<120;i++){
-    particles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*2+1,
-        speed: Math.random()*0.3
-    });
-}
+<!-- BRAND VISION SECTION -->
+<section class="vision">
+    <p>Goldenlee represents discipline, vision, and long-term creative expansion. Calm but powerful, confident yet mysterious, with a premium gaming and glitchy identity.</p>
+</section>
 
-function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p=>{
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(0,255,0,0.2)';
-        ctx.fill();
-        p.y -= p.speed;
-        if(p.y<0)p.y=canvas.height;
-    });
-    requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
-</script>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Goldenlee. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
