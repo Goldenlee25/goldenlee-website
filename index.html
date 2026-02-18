@@ -1,3 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goldenlee</title>
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050816;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Cosmic Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 60% 40%, rgba(157,0,255,0.15), transparent 60%);
+    filter: blur(120px);
+    z-index: 1;
+}
+
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.logo-text {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #00f2ff, #9d00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    margin-top: 1rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+}
+
+.enter-btn {
+    margin-top: 2rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.enter-btn:hover {
+    box-shadow: 0 0 20px rgba(0,242,255,0.4);
+    transform: translateY(-3px);
+}
+
+/* Character Container */
+.character-container {
+    position: absolute;
+    right: 8%;
+    bottom: 5%;
+    z-index: 2;
+    transition: transform 0.2s ease-out;
+}
+
+/* Character Image */
+.character-img {
+    width: 380px;
+    max-width: 90vw;
+    filter: drop-shadow(0 0 30px rgba(0,242,255,0.2));
+}
+
+/* Glow Behind Character */
+.character-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0,242,255,0.25), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+    .character-container {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 40px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1 class="logo-text">Goldenlee</h1>
+        <p class="tagline">Gaming is the beginning. Expansion is inevitable.</p>
+        <button class="enter-btn">Enter the System</button>
+    </div>
+
+    <div class="character-container">
+        <div class="character-glow"></div>
+        <!-- IMPORTANT: Replace with your actual image file name -->
+        <img src="your-character.png" class="character-img" alt="Goldenlee Character">
+    </div>
+
+</section>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const character = document.querySelector('.character-container');
@@ -6,9 +152,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('mousemove', (e) => {
         const x = (window.innerWidth / 2 - e.clientX) / 40;
         const y = (window.innerHeight / 2 - e.clientY) / 40;
-
         character.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
 </script>
 
+</body>
+</html>
