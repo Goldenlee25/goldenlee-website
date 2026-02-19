@@ -26,11 +26,19 @@
             </p>
 
             <button class="enter-btn" onclick="enterSystem()">
-    ENTER SYSTEM
-</button>
+                ENTER SYSTEM
+            </button>
 
         </div>
     </section>
+
+    <div class="glitch-transition"></div>
+
+    <script>
+        function enterSystem() {
+            document.querySelector(".glitch-transition").classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
