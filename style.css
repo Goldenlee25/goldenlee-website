@@ -1,12 +1,8 @@
-/* RESET */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* BODY */
 
 body {
     font-family: 'Segoe UI', sans-serif;
@@ -15,8 +11,6 @@ body {
     overflow-x: hidden;
     position: relative;
 }
-
-/* BACKGROUND */
 
 body::before {
     content: "";
@@ -33,8 +27,6 @@ body::before {
 
     z-index: -3;
 }
-
-/* SCANLINES */
 
 body::after {
     content: "";
@@ -54,8 +46,6 @@ body::after {
     pointer-events: none;
     z-index: -2;
 }
-
-/* NOISE */
 
 .noise {
     position: fixed;
@@ -79,8 +69,6 @@ body::after {
     100% { transform: translate(1px,1px); }
 }
 
-/* HERO */
-
 .hero {
     height: 100vh;
     display: flex;
@@ -90,52 +78,6 @@ body::after {
 
 .hero-container {
     text-align: center;
-}
-
-/* TITLE */
-
-.glow-text {
-    font-size: 5rem;
-    letter-spacing: 6px;
-    color: #caffca;
-    text-shadow:
-        0 0 5px #00ff8c,
-        0 0 10px #00ff8c,
-        0 0 20px rgba(0,255,140,0.4);
-}
-
-/* SUBTEXT */
-
-.hero-sub {
-    margin-top: 10px;
-    color: #a4f5c8;
-    opacity: 0.8;
-}
-
-/* BUTTON */
-
-.enter-btn {
-    margin-top: 40px;
-    padding: 14px 40px;
-    background: transparent;
-    border: 1px solid #00ff8c;
-    color: #caffca;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.enter-btn:hover {
-    box-shadow:
-        0 0 10px #00ff8c,
-        0 0 20px rgba(0,255,140,0.4);
-    transform: scale(1.05);
-}
-
-/* HERO PANEL CARD */
-
-.hero-container {
     background: rgba(0, 255, 140, 0.02);
     border: 1px solid rgba(0, 255, 140, 0.2);
     padding: 60px 100px;
@@ -147,8 +89,6 @@ body::after {
 
     position: relative;
 }
-
-/* CORNER LINES */
 
 .hero-container::before,
 .hero-container::after {
@@ -171,4 +111,81 @@ body::after {
     right: -10px;
     border-left: none;
     border-top: none;
+}
+
+.glow-text {
+    font-size: 5rem;
+    letter-spacing: 6px;
+    color: #caffca;
+    text-shadow:
+        0 0 5px #00ff8c,
+        0 0 10px #00ff8c,
+        0 0 20px rgba(0,255,140,0.4);
+}
+
+.hero-sub {
+    margin-top: 10px;
+    color: #a4f5c8;
+    opacity: 0.8;
+}
+
+.enter-btn {
+    margin-top: 40px;
+    padding: 14px 40px;
+    background: transparent;
+    border: 1px solid #00ff8c;
+    color: #caffca;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.enter-btn:hover {
+    box-shadow:
+        0 0 10px #00ff8c,
+        0 0 20px rgba(0,255,140,0.4);
+    transform: scale(1.05);
+}
+
+.glitch-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #05060a;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.glitch-transition.active {
+    animation: glitchTunnel 1.2s forwards;
+}
+
+@keyframes glitchTunnel {
+
+    0% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(2px);
+    }
+
+    50% {
+        transform: scale(0.2);
+        filter: blur(10px);
+    }
+
+    100% {
+        transform: scale(0);
+        filter: blur(30px);
+        opacity: 1;
+    }
 }
