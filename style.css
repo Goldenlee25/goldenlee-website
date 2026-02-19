@@ -1,10 +1,12 @@
-/* ===== RESET ===== */
+/* RESET */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* BODY */
 
 body {
     font-family: 'Segoe UI', sans-serif;
@@ -14,7 +16,7 @@ body {
     position: relative;
 }
 
-/* ===== BASE BACKGROUND ===== */
+/* BACKGROUND */
 
 body::before {
     content: "";
@@ -32,7 +34,7 @@ body::before {
     z-index: -3;
 }
 
-/* ===== SCANLINES ===== */
+/* SCANLINES */
 
 body::after {
     content: "";
@@ -53,7 +55,7 @@ body::after {
     z-index: -2;
 }
 
-/* ===== NOISE LAYER ===== */
+/* NOISE */
 
 .noise {
     position: fixed;
@@ -77,12 +79,56 @@ body::after {
     100% { transform: translate(1px,1px); }
 }
 
-/* ===== GLOW TEXT ===== */
+/* HERO */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    text-align: center;
+}
+
+/* TITLE */
 
 .glow-text {
+    font-size: 5rem;
+    letter-spacing: 6px;
     color: #caffca;
     text-shadow:
         0 0 5px #00ff8c,
         0 0 10px #00ff8c,
         0 0 20px rgba(0,255,140,0.4);
+}
+
+/* SUBTEXT */
+
+.hero-sub {
+    margin-top: 10px;
+    color: #a4f5c8;
+    opacity: 0.8;
+}
+
+/* BUTTON */
+
+.enter-btn {
+    margin-top: 40px;
+    padding: 14px 40px;
+    background: transparent;
+    border: 1px solid #00ff8c;
+    color: #caffca;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.enter-btn:hover {
+    box-shadow:
+        0 0 10px #00ff8c,
+        0 0 20px rgba(0,255,140,0.4);
+    transform: scale(1.05);
 }
