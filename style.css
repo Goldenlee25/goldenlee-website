@@ -132,3 +132,43 @@ body::after {
         0 0 20px rgba(0,255,140,0.4);
     transform: scale(1.05);
 }
+
+/* HERO PANEL CARD */
+
+.hero-container {
+    background: rgba(0, 255, 140, 0.02);
+    border: 1px solid rgba(0, 255, 140, 0.2);
+    padding: 60px 100px;
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 20px rgba(0,255,140,0.1),
+        inset 0 0 20px rgba(0,255,140,0.05);
+
+    position: relative;
+}
+
+/* CORNER LINES */
+
+.hero-container::before,
+.hero-container::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00ff8c;
+}
+
+.hero-container::before {
+    top: -10px;
+    left: -10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.hero-container::after {
+    bottom: -10px;
+    right: -10px;
+    border-left: none;
+    border-top: none;
+}
