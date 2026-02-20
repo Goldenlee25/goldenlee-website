@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goldenlee System</title>
-
-<style>
-body{
-    margin:0;
-    background:black;
-    color:white;
-    font-family:Arial;
-    overflow:hidden;
-}
-
-.boot{
-    position:absolute;
-    top:40%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-</style>
+<link rel="stylesheet" href="system.css">
 </head>
 
 <body>
 
-<div class="boot">
-<h1>WELCOME TO GOLDENLEE</h1>
-<p>A Brand From creativity A Brand to Shape the Future..</p>
+<div class="system-container">
+<h1 class="system-title">Goldenlee</h1>
+<p class="system-text">
+A Brand From Creativity<br>
+A Brand To Shape The Future
+</p>
 </div>
+
+<div class="panel-container">
+
+<div class="panel">
+<h2>IDENTITY</h2>
+<p>Who is Goldenlee?</p>
+</div>
+
+<div class="panel">
+<h2>PROJECTS</h2>
+<p>Active Creations</p>
+</div>
+
+<div class="panel">
+<h2>CONNECT</h2>
+<p>Join The Vision</p>
+</div>
+
+</div>
+
+<script>
+
+document.addEventListener("click", function(e){
+let ripple = document.createElement("div");
+ripple.className = "ripple";
+ripple.style.left = e.clientX + "px";
+ripple.style.top = e.clientY + "px";
+document.body.appendChild(ripple);
+setTimeout(()=>{ripple.remove();},600);
+});
+
+</script>
 
 </body>
 </html>
