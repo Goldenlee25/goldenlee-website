@@ -17,33 +17,52 @@ A Brand To Shape The Future
 
 <div class="panel-container">
 
-<div class="panel">
+<div class="panel" onclick="openPanel('identity')">
 <h2>IDENTITY</h2>
 <p>Who is Goldenlee?</p>
 </div>
 
-<div class="panel">
+<div class="panel" onclick="openPanel('projects')">
 <h2>PROJECTS</h2>
 <p>Active Creations</p>
 </div>
 
-<div class="panel">
+<div class="panel" onclick="openPanel('connect')">
 <h2>CONNECT</h2>
 <p>Join The Vision</p>
 </div>
 
 </div>
 
+<div id="popup">
+<div id="popupContent"></div>
+<button onclick="closePanel()">CLOSE</button>
+</div>
+
 <script>
 
-document.addEventListener("click", function(e){
-let ripple = document.createElement("div");
-ripple.className = "ripple";
-ripple.style.left = e.clientX + "px";
-ripple.style.top = e.clientY + "px";
-document.body.appendChild(ripple);
-setTimeout(()=>{ripple.remove();},600);
-});
+function openPanel(type){
+let popup = document.getElementById("popup");
+let content = document.getElementById("popupContent");
+
+popup.style.display = "block";
+
+if(type === "identity"){
+content.innerHTML = "Goldenlee is a creative digital brand focused on shaping future experiences through design, music, and innovation.";
+}
+
+if(type === "projects"){
+content.innerHTML = "Current Projects:<br><br>Driftwave Music Platform<br>Future Creative Systems<br>Brand Development";
+}
+
+if(type === "connect"){
+content.innerHTML = "Contact:<br><br>Email Coming Soon<br>Social Links Coming Soon";
+}
+}
+
+function closePanel(){
+document.getElementById("popup").style.display = "none";
+}
 
 </script>
 
