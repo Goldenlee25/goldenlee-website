@@ -8,7 +8,7 @@ body{
 
 .system-container{
     position:absolute;
-    top:50%;
+    top:30%;
     left:50%;
     transform:translate(-50%,-50%);
     text-align:center;
@@ -25,10 +25,61 @@ body{
 .system-text{
     color:white;
     margin-top:20px;
-    animation:flicker 1.5s infinite alternate;
 }
 
-@keyframes flicker{
-    0%{opacity:0.2;}
-    100%{opacity:1;}
+/* PANEL AREA */
+
+.panel-container{
+    position:absolute;
+    bottom:10%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:40px;
+}
+
+.panel{
+    width:200px;
+    height:150px;
+    border:2px solid #00ff88;
+    text-align:center;
+    color:white;
+    padding-top:40px;
+    cursor:pointer;
+    transition:0.4s;
+    animation:float 6s ease-in-out infinite;
+}
+
+.panel:hover{
+    box-shadow:0 0 20px #00ff88;
+    transform:scale(1.05);
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* CLICK RIPPLE */
+
+.ripple{
+    position:fixed;
+    width:10px;
+    height:10px;
+    background:#00ff88;
+    border-radius:50%;
+    pointer-events:none;
+    animation:rippleEffect 0.6s linear;
+}
+
+@keyframes rippleEffect{
+    0%{
+        transform:scale(0);
+        opacity:1;
+    }
+    100%{
+        transform:scale(20);
+        opacity:0;
+    }
 }
