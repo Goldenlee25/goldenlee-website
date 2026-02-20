@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<link rel="stylesheet" href="system.css">
+</head>
+
+<body>
+
+<div class="system-container">
+<h1 class="system-title">Goldenlee</h1>
+<p class="system-text">
+A Brand From Creativity<br>
+A Brand To Shape The Future
+</p>
+</div>
+
+<div class="panel-container">
+
+<div class="panel" onclick="openPanel('identity')">
+<h2>IDENTITY</h2>
+<p>Who is Goldenlee?</p>
+</div>
+
+<div class="panel" onclick="openPanel('projects')">
+<h2>PROJECTS</h2>
+<p>Active Creations</p>
+</div>
+
+<div class="panel" onclick="openPanel('connect')">
+<h2>CONNECT</h2>
+<p>Join The Vision</p>
+</div>
+
+</div>
+
+<div id="popup">
+<button onclick="closePanel()">X</button>
+<div id="popupContent"></div>
+</div>
+
+<script>
+
+function openPanel(type){
+let popup = document.getElementById("popup");
+let content = document.getElementById("popupContent");
+
+popup.style.display = "block";
+
+if(type === "identity"){
+content.innerHTML = "<h3>Goldenlee Identity</h3><p>Goldenlee is a digital creative brand focused on shaping future experiences through innovation, creativity and music based interaction.</p>";
+}
+
+if(type === "projects"){
+content.innerHTML = "<h3>Current Projects</h3><p>Driftwave Music Platform<br>Future Creative Systems<br>Brand Development</p>";
+}
+
+if(type === "connect"){
+content.innerHTML = "<h3>Connect</h3><p>Email Coming Soon<br>Social Links Coming Soon</p>";
+}
+}
+
+function closePanel(){
+document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
