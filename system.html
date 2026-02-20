@@ -23,3 +23,32 @@
     <button class="close-btn" onclick="closeModule()">CLOSE</button>
 
 </div>
+
+<script>
+
+function openModule(type) {
+
+    let content = "";
+
+    if(type === "identity"){
+        content = "<h2>Goldenlee Identity</h2><p>Brand info here...</p>";
+    }
+
+    if(type === "projects"){
+        content = "<h2>Projects</h2><p>Current work here...</p>";
+    }
+
+    if(type === "connect"){
+        content = "<h2>Connect</h2><p>Social links here...</p>";
+    }
+
+    document.getElementById("moduleContent").innerHTML = content;
+    document.getElementById("moduleWindow").style.display = "block";
+
+}
+
+function closeModule(){
+    document.getElementById("moduleWindow").style.display = "none";
+}
+
+</script>
