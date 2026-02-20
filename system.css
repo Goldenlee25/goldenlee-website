@@ -8,7 +8,7 @@ body{
 
 .system-container{
     position:absolute;
-    top:30%;
+    top:25%;
     left:50%;
     transform:translate(-50%,-50%);
     text-align:center;
@@ -68,19 +68,40 @@ body{
     position:fixed;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-40%);
     background:#021b14;
     border:2px solid #00ff88;
-    padding:40px;
+    padding:30px;
     color:white;
     z-index:999;
     text-align:center;
-    box-shadow:0 0 20px #00ff88;
+    box-shadow:0 0 30px #00ff88;
+    width:400px;
+    opacity:0;
+    animation:popupFade 0.4s forwards;
+}
+
+@keyframes popupFade{
+    from{
+        opacity:0;
+        transform:translate(-50%,-30%);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+}
+
+#popupContent{
+    margin-top:10px;
+    line-height:1.5;
 }
 
 #popup button{
-    margin-top:20px;
-    padding:10px 20px;
+    position:absolute;
+    top:10px;
+    right:10px;
+    padding:5px 15px;
     border:1px solid #00ff88;
     background:transparent;
     color:#00ff88;
