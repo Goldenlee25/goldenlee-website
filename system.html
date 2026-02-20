@@ -2,53 +2,25 @@
 
     <div class="card identity" onclick="openModule('identity')">
         <h2>IDENTITY</h2>
+        <p>Who is Goldenlee?<br>Creative Vision</p>
     </div>
 
     <div class="card projects" onclick="openModule('projects')">
         <h2>PROJECTS</h2>
+        <p>What's Being Built<br>Current Work</p>
     </div>
 
     <div class="card connect" onclick="openModule('connect')">
         <h2>CONNECT</h2>
+        <p>Say Hello<br>Get In Touch</p>
     </div>
 
 </div>
 
 <div id="moduleWindow" class="module-window">
 
-    <div class="module-content" id="moduleContent">
-        <!-- Module loads here -->
-    </div>
+    <div class="module-content" id="moduleContent"></div>
 
     <button class="close-btn" onclick="closeModule()">CLOSE</button>
 
 </div>
-
-<script>
-
-function openModule(type) {
-
-    let content = "";
-
-    if(type === "identity"){
-        content = "<h2>Goldenlee Identity</h2><p>Brand info here...</p>";
-    }
-
-    if(type === "projects"){
-        content = "<h2>Projects</h2><p>Current work here...</p>";
-    }
-
-    if(type === "connect"){
-        content = "<h2>Connect</h2><p>Social links here...</p>";
-    }
-
-    document.getElementById("moduleContent").innerHTML = content;
-    document.getElementById("moduleWindow").style.display = "block";
-
-}
-
-function closeModule(){
-    document.getElementById("moduleWindow").style.display = "none";
-}
-
-</script>
