@@ -35,8 +35,8 @@ A Brand To Shape The Future
 </div>
 
 <div id="popup">
-<button onclick="closePanel()">X</button>
 <div id="popupContent"></div>
+<button onclick="closePanel()">CLOSE</button>
 </div>
 
 <script>
@@ -48,15 +48,15 @@ let content = document.getElementById("popupContent");
 popup.style.display = "block";
 
 if(type === "identity"){
-content.innerHTML = "<h3>Goldenlee Identity</h3><p>Goldenlee is a digital creative brand focused on shaping future experiences through innovation, creativity and music based interaction.</p>";
+content.innerHTML = "Goldenlee is a creative digital brand focused on shaping future experiences through design, music, and innovation.";
 }
 
 if(type === "projects"){
-content.innerHTML = "<h3>Current Projects</h3><p>Driftwave Music Platform<br>Future Creative Systems<br>Brand Development</p>";
+content.innerHTML = "Current Projects:<br><br>Driftwave Music Platform<br>Future Creative Systems<br>Brand Development";
 }
 
 if(type === "connect"){
-content.innerHTML = "<h3>Connect</h3><p>Email Coming Soon<br>Social Links Coming Soon</p>";
+content.innerHTML = "Contact:<br><br>Email Coming Soon<br>Social Links Coming Soon";
 }
 }
 
